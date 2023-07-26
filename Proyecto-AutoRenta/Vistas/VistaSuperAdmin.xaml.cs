@@ -81,5 +81,12 @@ namespace Proyecto_AutoRenta.Vistas
             this.Close();
             StartLogin.Show();
         }
+
+        private void BtnGoAtencionCliente_Click(object sender, RoutedEventArgs e)
+        {
+            AtencionCliente StarATENCIONCLIENTE = new AtencionCliente();
+            this.Close();
+            StarATENCIONCLIENTE.Show();
+        }
     }
 }

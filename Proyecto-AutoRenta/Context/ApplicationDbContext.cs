@@ -12,13 +12,15 @@ namespace Proyecto_AutoRenta.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySQL("Server= localhost; database= ProyectoAutoRenta23BM; user=root; password=12345");
+            // options.UseMySQL("Server= localhost; database= ProyectoAutoRenta23BM; user=root; password=12345");
+            options.UseMySQL("server= localhost; port=3306; database=ProyectoAutoRenta23BM; user=root;password=");
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Vehiculos> Vehiculo { get; set; }
         public DbSet<Reserve> Reservas { get; set; }
+        public DbSet<AtenCliente> AtencionAlCliente { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Rol>().HasData
@@ -49,7 +51,10 @@ namespace Proyecto_AutoRenta.Context
                     Tipo = "Deportivo",
                     Tarifa = 123,
                 }
+
            );
+
+            
         }
     }
 }

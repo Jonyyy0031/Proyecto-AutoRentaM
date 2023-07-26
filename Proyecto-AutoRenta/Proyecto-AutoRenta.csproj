@@ -30,6 +30,8 @@
     <None Remove="Images\reserva.png" />
     <None Remove="Images\tarjeta-de-identificacion %281%29.png" />
     <None Remove="Images\user-icon.png" />
+    <None Remove="Vistas\agente-de-servicio-al-cliente.png" />
+    <None Remove="Vistas\Icon descrip.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,6 +71,8 @@
     <Resource Include="Images\reserva.png" />
     <Resource Include="Images\tarjeta-de-identificacion (1).png" />
     <Resource Include="Images\user-icon.png" />
+    <Resource Include="Images\Icon descrip.png" />
+    <Resource Include="Images\agente-de-servicio-al-cliente.png" />
   </ItemGroup>
 
 </Project>
