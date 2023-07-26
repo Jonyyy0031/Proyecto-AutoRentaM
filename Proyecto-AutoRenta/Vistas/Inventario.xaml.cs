@@ -68,7 +68,7 @@ namespace Proyecto_AutoRenta.Vistas
                 SelectTipo.SelectedIndex = -1;
                 txtTarifa.Clear();
 
-                MessageBox.Show("SE AGREGÓ EL VEHÍCULO CORRECTAMENTE");
+                MessageBox.Show("Se agrego el vehiculo correctamente");
                 GetUserTable();
             }
 

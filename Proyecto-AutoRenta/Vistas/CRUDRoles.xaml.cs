@@ -37,7 +37,7 @@ namespace Proyecto_AutoRenta.Vistas
                 roles.PkRol = id;
                 roles.Nombre = txtNombre.Text;
                 services.UpdateRol(roles);
-                MessageBox.Show("Usuario actualizado");
+                MessageBox.Show("Rol actualizado");
                 GetRolTable();
             }
             else

@@ -47,7 +47,7 @@ namespace Proyecto_AutoRenta.Vistas
                 txtNombre.Clear();
                 txtCorreo.Clear();
                 txtTelefono.Clear();
-                MessageBox.Show("Usuario actualizado");
+                MessageBox.Show("Reserva actualizada");
                 GetrenTable();
                 GetVehiculos();
             }
@@ -62,7 +62,7 @@ namespace Proyecto_AutoRenta.Vistas
                 txtNombre.Clear();
                 txtCorreo.Clear();
                 txtTelefono.Clear();
-                MessageBox.Show("SE AGREGÓ CORRECTAMENTE");
+                MessageBox.Show("Reserva creada correctamente");
                 GetrenTable();
                 GetVehiculos();
             }
