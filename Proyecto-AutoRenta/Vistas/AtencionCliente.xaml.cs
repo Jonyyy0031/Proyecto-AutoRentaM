@@ -57,7 +57,7 @@ namespace Proyecto_AutoRenta.Vistas
                 SelecEstatus.SelectedIndex = -1;
 
 
-                MessageBox.Show("Se agrego el vehiculo correctamente");
+                MessageBox.Show("Se creo el ticket correctamente");
                 GetUserTableA();
             }
 
@@ -71,7 +71,7 @@ namespace Proyecto_AutoRenta.Vistas
                 atencionc.Estatus = SelecEstatus.Text;
                 servicesA.UpdateUserAtencion(atencionc);
 
-                MessageBox.Show("¡Datos del vehículos modificados correctamente!");
+                MessageBox.Show("¡Se modifico el ticket correctamente!");
                 txtNCliente.Clear();
                 txtACliente.Clear();
                 txtDescripcion.Clear();

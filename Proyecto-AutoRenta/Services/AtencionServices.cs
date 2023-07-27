@@ -52,11 +52,11 @@ namespace Proyecto_AutoRenta.Services
                     {
                         _context.Entry(atencion).State = EntityState.Deleted;
                         _context.SaveChanges();
-                        MessageBox.Show("El usuario ha sido eliminado correctamente.");
+                        MessageBox.Show("El ticket ha sido eliminado correctamente.");
                     }
                     else
                     {
-                        MessageBox.Show("No se encontró ningún usuario con el ID especificado.");
+                        MessageBox.Show("No se encontró ningún ticket con el ID especificado.");
                     }
                 }
 

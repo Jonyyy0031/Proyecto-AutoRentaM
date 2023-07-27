@@ -205,7 +205,7 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
-                    <Image Source="/Images/agente-de-servicio-al-cliente.png" Stretch="UniformToFill" Margin="-29,-1,29,1" />
+                    <Image Source="/Images/agente-de-servicio-al-cliente.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
                 </Button>
                 <Button x:Name="BtnGoInventario" BorderThickness="0"  Margin="604,297,63,91" Grid.Row="1" Click="BtnGoInventario_Click">
                     <Button.Template>
@@ -227,7 +227,7 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
-                    <Image Source="/Images/flota.png" Stretch="UniformToFill" Margin="48,-2,-49,2" />
+                    <Image Source="/Images/flota.png" Stretch="UniformToFill" Margin="-1,-2,0,2" />
                 </Button>
                 <Button x:Name="BtnGoPagos" BorderThickness="0"  Margin="79,292,588,96" Grid.Row="1" Click="BtnGoPagos_Click">
                     <Button.Template>
