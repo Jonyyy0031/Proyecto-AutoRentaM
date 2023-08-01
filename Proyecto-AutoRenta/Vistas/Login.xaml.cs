@@ -71,6 +71,7 @@ namespace Proyecto_AutoRenta.Vistas
                     return;
                 }
                 string rol = usuario.Roles.Nombre;
+                App.UsuarioAutenticado = usuario;
                 switch (rol)
                 {
                     case "SuperAdmin":
@@ -78,15 +79,35 @@ namespace Proyecto_AutoRenta.Vistas
                         Close();
                         VistaSuperAdmin iniciar = new VistaSuperAdmin();
                         iniciar.Show();
+                        break;
+
+                    case "GestorReserva":
+                        MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                        Reserva StartReserve = new Reserva();
+                        StartReserve.Show();
 
                         break;
-                    case "Usuario":
+
+                    case "GestorInventario":
                         MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                        Inventario StartInventary = new Inventario();
+                        StartInventary.Show();
                         break;
-                    default:
+                    case "GestorAC":
+                        MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                        AtencionCliente StartAC = new AtencionCliente();
+                        StartAC.Show();
+                        break;
+                    case "GestorLavado":
+                        MessageBox.Show("Acceso correcto", "Inicio de sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                        Lavado StartLavado = new Lavado();
+                        StartLavado.Show();
                         break;
                 }
-
             }
             else
             {

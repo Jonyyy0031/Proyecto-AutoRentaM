@@ -135,8 +135,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding PkLavado}" />
                         <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
-                        <DataGridTextColumn Header="Estado" Binding="{Binding Estado}"/>
-
+                        <DataGridTextColumn Header="Lavado" Binding="{Binding Estado}"/>
                         <DataGridTemplateColumn Header="Editar">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -173,14 +172,14 @@
                 </TextBox>
 
                 <Label Content="ID" HorizontalAlignment="Left" Height="30" Margin="40,101,0,0" Grid.Row="1" VerticalAlignment="Top" Width="30" Foreground="#FFFFF3F3" FontWeight="Bold" FontSize="14"/>
-                <Label Content="Selecione el vheiculo" HorizontalAlignment="Left" Height="29" Margin="133,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="170" Foreground="#FFF7F7F7" FontWeight="Bold" FontSize="16"/>
+                <Label Content="Vehiculo"  HorizontalAlignment="Left" Height="29" Margin="170,96,0,0" Grid.Row="1" VerticalAlignment="Top" Width="86" Foreground="#FFF7F7F7" FontWeight="Bold" FontSize="16"/>
                 <ComboBox x:Name ="SelectVehiculo" Margin="133,134,502,0" Grid.Row="1" VerticalAlignment="Top" Height="23"/>
 
-                <Label Content="Estado Del Vehiculo" HorizontalAlignment="Left" Height="32" Margin="358,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="170" Foreground="White" FontSize="16" FontWeight="Bold"/>
+                <Label Content="Estado Del Vehiculo" HorizontalAlignment="Left" Height="32" Margin="354,96,0,0" Grid.Row="1" VerticalAlignment="Top" Width="170" Foreground="White" FontSize="16" FontWeight="Bold"/>
                 <Button x:Name="BtnAgregar" 
-                        Content="Agregar registro" 
-                        HorizontalAlignment="Center" 
-                        Margin="648,135,0,0" Grid.Row="1" 
+                        Content="Guardar" 
+                        HorizontalAlignment="Left" 
+                        Margin="646,122,0,0" Grid.Row="1" 
                         VerticalAlignment="Top"
                          Click="BtnAgregar_Click" RenderTransformOrigin="0.555,0.503" Height="32" Width="96">
                     <Button.RenderTransform>
@@ -198,7 +197,7 @@
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
-                            Click="BtnFlechaIzquierda_Click" Margin="8,5,739,340" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                            Click="BtnFlechaIzquierda_Click" Margin="8,5,739,355" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
                     <Button.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

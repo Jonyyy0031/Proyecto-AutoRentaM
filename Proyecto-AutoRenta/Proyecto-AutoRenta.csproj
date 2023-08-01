@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Images\6hkkleubbd931.jpg" />
+    <None Remove="Images\agente-de-servicio-al-cliente.png" />
     <None Remove="Images\back-image.jpg" />
     <None Remove="Images\candado.png" />
     <None Remove="Images\cars %281%29.png" />
@@ -24,7 +25,7 @@
     <None Remove="Images\fondo_inventario.png" />
     <None Remove="Images\gestion-de-equipos.png" />
     <None Remove="Images\key-icon.png" />
-    <None Remove="Images\lavado-de-autos.png" />
+    <None Remove="Images\lavado-de-coches.png" />
     <None Remove="Images\metodo-de-pago.png" />
     <None Remove="Images\moneda.png" />
     <None Remove="Images\pase-de-prensa.png" />
@@ -34,6 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\lavado-de-coches.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\agente-de-servicio-al-cliente.png" />
     <Resource Include="Images\flota.png" />
   </ItemGroup>
 

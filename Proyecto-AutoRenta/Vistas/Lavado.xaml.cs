@@ -23,55 +23,65 @@ namespace Proyecto_AutoRenta.Vistas
     {
         Lavadoo lavado = new Lavadoo();
         LavadoServices Services = new LavadoServices();
-        
+
         public Lavado()
         {
             InitializeComponent();
             GetVehiculos();
             GetUserTable();
-        }
-        
-        private void BtnAgregar_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtEstado.Text) || string.IsNullOrEmpty(SelectVehiculo.Text))
+            if (App.UsuarioAutenticado != null)
             {
-                int ID;
-                if (int.TryParse(txtPkLavado.Text, out ID))
-                {
-                    Lavadoo lavado = new Lavadoo();
+                Usuario usuarioAutenticado = App.UsuarioAutenticado;
+                MostrarBotonSegunRol(usuarioAutenticado);
+            }
+        }
 
-                    lavado.PkLavado = ID;
-                    lavado.Estado = txtEstado.Text;
-                    Services.UpdateLavado(lavado);
-
-                    MessageBox.Show("Registro actualizada");
-                    GetUserTable();
-                    GetVehiculos();
-                }
-                else
-                {
-                    lavado.Estado = txtEstado.Text;
-                    lavado.FkVehiculos = int.Parse(SelectVehiculo.SelectedValue.ToString());
-                    Services.AddLavado(lavado);
-
-                    txtEstado.Clear();
-
-                    MessageBox.Show("Reserva creada correctamente");
-                    GetUserTable();
-                    GetVehiculos();
-                }
+        private void MostrarBotonSegunRol(Usuario usuario)
+        {
+            // Verificar si el usuario es "SuperAdmin" y mostrar u ocultar el botón según el rol.
+            if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
+            {
+                btnFlechaIzquierdaadmin.Visibility = Visibility.Visible;
             }
             else
             {
-                MessageBox.Show("Complete todos los campos");
+                btnFlechaIzquierdaadmin.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void BtnAgregar_Click(object sender, RoutedEventArgs e)
+        {
+            int ID;
+            if (int.TryParse(txtPkLavado.Text, out ID))
+            {
+                Lavadoo lavado = new Lavadoo();
+
+                lavado.PkLavado = ID;
+                lavado.Estado = txtEstado.Text;
+                Services.UpdateReporte(lavado);
+
+                MessageBox.Show("Reporte actualizado");
+                GetUserTable();
+                GetVehiculos();
+            }
+            else
+            {
+                lavado.Estado = txtEstado.Text;
+                lavado.FkVehiculos = int.Parse(SelectVehiculo.SelectedValue.ToString());
+                Services.AddReporte(lavado);
+
+                txtEstado.Clear();
+
+                MessageBox.Show("Reporte creado correctamente");
+                GetUserTable();
+                GetVehiculos();
             }
         }
         private void DeleteItem(object sender, RoutedEventArgs e)
         {
             Lavadoo lavadoo = new Lavadoo();
-            lavadoo = (sender as FrameworkElement).DataContext as Lavadoo ;
+            lavadoo = (sender as FrameworkElement).DataContext as Lavadoo;
             int ID = int.Parse(lavadoo.PkLavado.ToString());
-            Services.DeleteUserL(ID);
+            Services.DeleteReporte(ID);
             GetUserTable();
             GetVehiculos();
 
@@ -84,7 +94,6 @@ namespace Proyecto_AutoRenta.Vistas
             txtEstado.Text = lavadoo.Estado.ToString();
 
         }
-        //----------------------------------------------------------------------//
         public void GetUserTable()
         {
             UserTable.ItemsSource = Services.GetLavado();
@@ -96,8 +105,6 @@ namespace Proyecto_AutoRenta.Vistas
             SelectVehiculo.DisplayMemberPath = "Modelo";
             SelectVehiculo.SelectedValuePath = "PkVehiculo";
         }
-
-        //----------------------------------------------------------------//
         private void BtnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
@@ -109,9 +116,15 @@ namespace Proyecto_AutoRenta.Vistas
         }
         public void BtnFlechaIzquierda_Click(object sender, RoutedEventArgs e)
         {
-            VistaSuperAdmin iniciar = new VistaSuperAdmin();
-            iniciar.Show();
+            Login StartLogin = new Login();
             this.Close();
+            StartLogin.Show();
+        }
+        private void btnFlechaIzquierdaadmin_Click(object sender, RoutedEventArgs e)
+        {
+            VistaSuperAdmin StartViewSA = new VistaSuperAdmin();
+            this.Close();
+            StartViewSA.Show();
         }
     }
-} 
+}

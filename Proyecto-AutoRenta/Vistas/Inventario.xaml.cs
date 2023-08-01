@@ -3,6 +3,7 @@ using Proyecto_AutoRenta.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,24 @@ namespace Proyecto_AutoRenta.Vistas
         public Inventario()
         {
             InitializeComponent();
-            GetUserTable();
+            GetVehiculosTable();
+            if (App.UsuarioAutenticado != null)
+            {
+                Usuario usuarioAutenticado = App.UsuarioAutenticado;
+                MostrarBotonSegunRol(usuarioAutenticado);
+            }
+        }
+        private void MostrarBotonSegunRol(Usuario usuario)
+        {
+            // Verificar si el usuario es "SuperAdmin" y mostrar u ocultar el botón según el rol.
+            if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
+            {
+                btnFlechaIzquierdaadmin.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnFlechaIzquierdaadmin.Visibility = Visibility.Collapsed;
+            }
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -55,40 +73,66 @@ namespace Proyecto_AutoRenta.Vistas
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
         {
 
-
-            if (txtPkVehiculo.Text == "")
+            if (string.IsNullOrEmpty(txtModelo.Text) || string.IsNullOrEmpty(SelectTipo.Text) || string.IsNullOrEmpty(txtTarifa.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos");
+            }
+            else if (txtPkVehiculo.Text == "")
             {
                 vehiculo.Modelo = txtModelo.Text;
                 vehiculo.Tipo = SelectTipo.Text;
-                vehiculo.Tarifa = double.Parse(txtTarifa.Text);
+                if (double.TryParse(txtTarifa.Text, out double tarifa))
+                {
+                    vehiculo.Tarifa = tarifa;
+                    services.AddVehiculo(vehiculo);
+                    //vehiculo.Tarifa = double.Parse(txtTarifa.Text);
 
-                services.AddVehiculo(vehiculo);
+                    txtModelo.Clear();
+                    SelectTipo.SelectedIndex = -1;
+                    txtTarifa.Clear();
 
-                txtModelo.Clear();
-                SelectTipo.SelectedIndex = -1;
-                txtTarifa.Clear();
-
-                MessageBox.Show("Se agrego el vehiculo correctamente");
-                GetUserTable();
+                    MessageBox.Show("Se agregó el vehiculo correctamente");
+                    GetVehiculosTable();
+                }
+                else
+                {
+                    MessageBox.Show("ingrese una tarifa valida");
+                }
             }
 
-            else if (txtPkVehiculo.Text != "")
+            else
             {
-                int id = int.Parse(txtPkVehiculo.Text);
-                vehiculo.PkVehiculo = id;
-                vehiculo.Modelo = txtModelo.Text;
-                vehiculo.Tipo = SelectTipo.Text;
-                vehiculo.Tarifa = double.Parse(txtTarifa.Text);
+                if (int.TryParse(txtPkVehiculo.Text, out int ID))
+                {
+                    //int id = int.Parse(txtPkVehiculo.Text);
+                    vehiculo.PkVehiculo = ID;
+                    vehiculo.Modelo = txtModelo.Text;
+                    vehiculo.Tipo = SelectTipo.Text;
 
-                services.UpdateUser(vehiculo);
+                    //Validar la entrada al campo tarifa
+                    if (double.TryParse(txtTarifa.Text, out double tarifa))
+                    {
+                        vehiculo.Tarifa = tarifa;
 
-                MessageBox.Show("¡Datos del vehículos modificados correctamente!");
-                txtPkVehiculo.Clear();
-                txtModelo.Clear();
-                SelectTipo.SelectedIndex = -1;
-                txtTarifa.Clear();
+                        services.UpdateVehiculo(vehiculo);
 
-                GetUserTable();
+                        MessageBox.Show("¡Datos del vehículos modificados correctamente!");
+                        txtPkVehiculo.Clear();
+                        txtModelo.Clear();
+                        SelectTipo.SelectedIndex = -1;
+                        txtTarifa.Clear();
+
+                        GetVehiculosTable();
+                    }
+                    else
+                    {
+                        MessageBox.Show("INGRESE UNA TARIFA VALIDA");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ID NO VALIDA");
+                }
             }
 
         }
@@ -106,12 +150,19 @@ namespace Proyecto_AutoRenta.Vistas
         {
             vehiculo = (sender as FrameworkElement).DataContext as Vehiculos;
             int ID = int.Parse(vehiculo.PkVehiculo.ToString());
-            services.DeleteUser(ID);
-            GetUserTable();
+            services.DeleteVehiculo(ID);
+            GetVehiculosTable();
         }
-        public void GetUserTable()
+        public void GetVehiculosTable()
         {
-            UserTable.ItemsSource = services.GetUsuarios();
+            UserTable.ItemsSource = services.GetVehiculos();
+        }
+
+        private void btnFlechaIzquierdaadmin_Click(object sender, RoutedEventArgs e)
+        {
+            VistaSuperAdmin StartViewSA = new VistaSuperAdmin();
+            this.Close();
+            StartViewSA.Show();
         }
     }
 }

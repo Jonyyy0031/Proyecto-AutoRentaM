@@ -13,7 +13,7 @@ namespace Proyecto_AutoRenta.Services
 {
     public class LavadoServices
     {
-        public void AddLavado(Lavadoo request)
+        public void AddReporte(Lavadoo request)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-        public void DeleteUserL(int id)
+        public void DeleteReporte(int id)
         {
             try
             {
@@ -48,11 +48,11 @@ namespace Proyecto_AutoRenta.Services
                     {
                         _context.lavados.Remove(lavado);
                         _context.SaveChanges();
-                        MessageBox.Show("El registro ha sido eliminado correctamente.");
+                        MessageBox.Show("El reporte ha sido eliminado correctamente.");
                     }
                     else
                     {
-                        MessageBox.Show("No se encontró ningún resgistro con el ID especificado.");
+                        MessageBox.Show("No se encontró ningún reporte con el ID especificado.");
                     }
                 }
 
@@ -63,8 +63,7 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-
-        public void UpdateLavado(Lavadoo request)
+        public void UpdateReporte(Lavadoo request)
         {
             try
             {
@@ -75,7 +74,6 @@ namespace Proyecto_AutoRenta.Services
                     lavadoo = _context.lavados.Find(request.PkLavado);
                     lavadoo.Estado = request.Estado;
                     lavadoo.Vehiculos = request.Vehiculos;
-                    
                     _context.Entry(lavadoo).State = EntityState.Modified;
                     _context.SaveChanges();
                 }
@@ -85,7 +83,6 @@ namespace Proyecto_AutoRenta.Services
                 throw new Exception("Ocurrio un error " + ex.Message);
             }
         }
-         //----------------------
         public List<Lavadoo> GetLavado()
         {
             try

@@ -70,16 +70,25 @@ namespace Proyecto_AutoRenta.Vistas
             StartINVENTARIO.Show();
         }
 
-        private void BtnGoPagos_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btngoback_Click(object sender, RoutedEventArgs e)
         {
             Login StartLogin = new Login();
             this.Close();
             StartLogin.Show();
+        }
+
+        private void BtnGoAC_Click(object sender, RoutedEventArgs e)
+        {
+            AtencionCliente StartAC = new AtencionCliente();
+            this.Close();
+            StartAC.Show();
+        }
+
+        private void BtnGoLavado_Click(object sender, RoutedEventArgs e)
+        {
+            Lavado StartWash = new Lavado();
+            this.Close();
+            StartWash.Show();
         }
         private void BtnGoLavado_Click(object sender, RoutedEventArgs e)
         {
