@@ -12,7 +12,7 @@ namespace Proyecto_AutoRenta.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySQL("Server= localhost; database= morales; user=root;");
+            options.UseMySQL("Server=localhost; database=Proyectoautorenta23bmMorrales; user=root; password=12345");
         }
 
         public DbSet<Lavadoo> lavados { get; set; }
@@ -21,7 +21,6 @@ namespace Proyecto_AutoRenta.Context
         public DbSet<Vehiculos> Vehiculo { get; set; }
         public DbSet<Reserve> Reservas { get; set; }
         public DbSet<AtenCliente> AtencionAlCliente { get; set; }
-        public DbSet<Lavadoo> lavados { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Rol>().HasData
