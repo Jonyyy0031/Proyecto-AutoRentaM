@@ -15,6 +15,7 @@ namespace Proyecto_AutoRenta.Context
             options.UseMySQL("Server= localhost; database= ProyectoAutoRenta23BM; user=root; password=");
         }
 
+        public DbSet<Lavadoo> lavados { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Vehiculos> Vehiculo { get; set; }

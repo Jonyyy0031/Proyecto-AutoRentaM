@@ -207,6 +207,34 @@
                     </Button.Style>
                     <Image Source="/Images/flota.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
                 </Button>
+
+                <!--lavado-->
+
+                <Button x:Name="BtnGoLavado" BorderThickness="0"  Margin="342,290,325,98" Grid.Row="1" Click="BtnGoLavado_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="Transparent">
+                                <ContentPresenter Content="{TemplateBinding Content}" Opacity="1" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Opacity" Value="1" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="/Images/lavado-de-autos.png" Stretch="UniformToFill" Margin="0,-1,0,1"/>
+                </Button>
+
+                <!--lavado-->
+
                 <Button x:Name="BtnGoPagos" BorderThickness="0"  Margin="157,297,510,91" Grid.Row="1" Click="BtnGoPagos_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -265,6 +293,8 @@
                 <Label Content="Reservas" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="615,212,0,0" Grid.Row="1"/>
                 <Label Content="Pagos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="183,425,0,0" Grid.Row="1"/>
                 <Label Content="Inventario" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="541,425,0,0" Grid.Row="1"/>
+                <Label Content="Lavado" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="24" Margin="359,425,0,0" Grid.Row="1"/>
+
             </Grid>
         </Border>
     </Border>

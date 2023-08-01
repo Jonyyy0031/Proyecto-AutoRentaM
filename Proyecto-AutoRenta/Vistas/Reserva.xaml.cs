@@ -101,6 +101,10 @@ namespace Proyecto_AutoRenta.Vistas
             SelectVehiculo.SelectedValuePath = "PkVehiculo";
         }
 
+
+
+
+        //---------------------------------------------------------------------//
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

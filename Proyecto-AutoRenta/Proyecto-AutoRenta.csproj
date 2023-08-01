@@ -24,6 +24,7 @@
     <None Remove="Images\fondo_inventario.png" />
     <None Remove="Images\gestion-de-equipos.png" />
     <None Remove="Images\key-icon.png" />
+    <None Remove="Images\lavado-de-autos.png" />
     <None Remove="Images\metodo-de-pago.png" />
     <None Remove="Images\moneda.png" />
     <None Remove="Images\pase-de-prensa.png" />
@@ -63,6 +64,9 @@
     <Resource Include="Images\fondo_inventario.png" />
     <Resource Include="Images\gestion-de-equipos.png" />
     <Resource Include="Images\key-icon.png" />
+    <Resource Include="Images\lavado-de-autos.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\metodo-de-pago.png" />
     <Resource Include="Images\moneda.png" />
     <Resource Include="Images\pase-de-prensa.png" />

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.RightsManagement;
 
 namespace Proyecto_AutoRenta.Entities
 {
@@ -20,6 +21,7 @@ namespace Proyecto_AutoRenta.Entities
         public int? FkVehiculos { get; set; }
         public Vehiculos Vehiculos { get; set; }
 
+        
 
 
     }
