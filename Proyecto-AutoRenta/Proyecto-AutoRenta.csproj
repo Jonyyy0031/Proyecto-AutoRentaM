@@ -70,6 +70,9 @@
     <Resource Include="Images\fondo_inventario.png" />
     <Resource Include="Images\gestion-de-equipos.png" />
     <Resource Include="Images\key-icon.png" />
+    <Resource Include="Images\lavado-de-autos.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\metodo-de-pago.png" />
     <Resource Include="Images\moneda.png" />
     <Resource Include="Images\pase-de-prensa.png" />

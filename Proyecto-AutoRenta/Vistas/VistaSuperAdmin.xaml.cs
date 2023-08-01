@@ -90,5 +90,11 @@ namespace Proyecto_AutoRenta.Vistas
             this.Close();
             StartWash.Show();
         }
+        private void BtnGoLavado_Click(object sender, RoutedEventArgs e)
+        {
+            Lavado StarLavado = new Lavado();
+            this.Close();
+            StarLavado.Show();
+        }
     }
 }

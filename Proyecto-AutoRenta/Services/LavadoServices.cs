@@ -29,8 +29,6 @@ namespace Proyecto_AutoRenta.Services
                         _context.SaveChanges();
                     }
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -65,7 +63,6 @@ namespace Proyecto_AutoRenta.Services
             }
         }
 
-
         public void UpdateReporte(Lavadoo request)
         {
             try
@@ -77,7 +74,6 @@ namespace Proyecto_AutoRenta.Services
                     lavadoo = _context.lavados.Find(request.PkLavado);
                     lavadoo.Estado = request.Estado;
                     lavadoo.Vehiculos = request.Vehiculos;
-
                     _context.Entry(lavadoo).State = EntityState.Modified;
                     _context.SaveChanges();
                 }
@@ -87,7 +83,6 @@ namespace Proyecto_AutoRenta.Services
                 throw new Exception("Ocurrio un error " + ex.Message);
             }
         }
-        //----------------------
         public List<Lavadoo> GetLavado()
         {
             try

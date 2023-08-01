@@ -86,7 +86,6 @@ namespace Proyecto_AutoRenta.Vistas
             GetVehiculos();
 
         }
-
         private void EditItem(object sender, RoutedEventArgs e)
         {
             Lavadoo lavadoo = new Lavadoo();
@@ -95,7 +94,6 @@ namespace Proyecto_AutoRenta.Vistas
             txtEstado.Text = lavadoo.Estado.ToString();
 
         }
-
         public void GetUserTable()
         {
             UserTable.ItemsSource = Services.GetLavado();
@@ -107,7 +105,6 @@ namespace Proyecto_AutoRenta.Vistas
             SelectVehiculo.DisplayMemberPath = "Modelo";
             SelectVehiculo.SelectedValuePath = "PkVehiculo";
         }
-
         private void BtnMinimizar_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;

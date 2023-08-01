@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.RightsManagement;
 
 namespace Proyecto_AutoRenta.Entities
 {
@@ -21,12 +22,9 @@ namespace Proyecto_AutoRenta.Entities
         [ForeignKey("Vehiculos")]
         public int FkVehiculos { get; set; }
         public Vehiculos Vehiculos { get; set; }
-
         [ForeignKey("Usuario")]
         public int FkUsuario { get; set; }
         public Usuario Usuario { get; set; }
-
-
 
     }
 }

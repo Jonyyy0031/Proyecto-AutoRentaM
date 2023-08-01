@@ -172,6 +172,10 @@ namespace Proyecto_AutoRenta.Vistas
             SelectUser.SelectedValuePath = "PkUsuario";
         }
 
+
+
+
+        //---------------------------------------------------------------------//
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

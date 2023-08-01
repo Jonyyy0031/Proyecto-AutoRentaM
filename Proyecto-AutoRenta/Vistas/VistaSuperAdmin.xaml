@@ -208,7 +208,6 @@
                     <Image Source="/Images/flota.png" Stretch="UniformToFill" Margin="0,-1,0,1" />
                 </Button>
 
-
                 <Button x:Name="BtnGoAC" BorderThickness="0"  Margin="109,297,558,91" Grid.Row="1" Click="BtnGoAC_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">

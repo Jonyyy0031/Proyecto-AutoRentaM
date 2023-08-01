@@ -134,10 +134,8 @@
                                                     Margin="16,200,16,26" Grid.Row="1"  >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding PkLavado}" />
-
                         <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
                         <DataGridTextColumn Header="Lavado" Binding="{Binding Estado}"/>
-
                         <DataGridTemplateColumn Header="Editar">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -208,39 +206,6 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Button.RenderTransform>
-                    <Image Source="/Images/cerrar-sesion.png"
-                    Stretch="Fill"/>
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#C62DAE"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="18" Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-
-                <Button x:Name="btnFlechaIzquierdaadmin"                          
-                            BorderThickness="0"
-                            Foreground="White"
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Visibility="Collapsed"
-                            
-                            Click="btnFlechaIzquierdaadmin_Click" Margin="10,5,765,489" Grid.Row="1">
                     <Image Source="/Images/flecha-izquierda.png"
                     Stretch="Fill"/>
                     <Button.Style>
@@ -264,7 +229,6 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                
                 <TextBox x:Name="txtEstado" HorizontalAlignment="Left" Height="23" Margin="358,131,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
 
 
