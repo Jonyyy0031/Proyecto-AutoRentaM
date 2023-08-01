@@ -41,46 +41,56 @@ namespace Proyecto_AutoRenta.Vistas
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
 
-            if (txtIDTicket.Text == "")
+            if (string.IsNullOrEmpty(txtNCliente.Text) || string.IsNullOrEmpty(txtACliente.Text) || string.IsNullOrEmpty(txtDescripcion.Text) || SelecEstatus.SelectedIndex == -1)
             {
-                atencionc.NombreCliente = txtNCliente.Text;
-                atencionc.ApellidoCliente = txtACliente.Text;
-                atencionc.Descripcion = txtDescripcion.Text;
-               
-                atencionc.Estatus=SelecEstatus.Text;
+                // Mostrar un mensaje de advertencia si alguno de los campos requeridos está vacío.
+                MessageBox.Show("Por favor, complete todos los campos antes de agregar o editar el ticket.");
+            }
+            else
+            {
+                if (txtIDTicket.Text == "")
+                {
+                    // Código para agregar un nuevo ticket...
+                    atencionc.NombreCliente = txtNCliente.Text;
+                    atencionc.ApellidoCliente = txtACliente.Text;
+                    atencionc.Descripcion = txtDescripcion.Text;
+                    atencionc.Estatus = SelecEstatus.Text;
 
-                servicesA.AddUser(atencionc);
+                    servicesA.AddUser(atencionc);
 
-                txtNCliente.Clear();
-                txtACliente.Clear();
-                txtDescripcion.Clear();
-                SelecEstatus.SelectedIndex = -1;
+                    txtNCliente.Clear();
+                    txtACliente.Clear();
+                    txtDescripcion.Clear();
+                    SelecEstatus.SelectedIndex = -1;
 
+                    // Notificar al usuario que el ticket se creó correctamente.
+                    MessageBox.Show("Se creó el ticket correctamente");
+                    GetUserTableA();
+                }
+                else
+                {
+                    // Código para editar un ticket existente...
+                    int id = int.Parse(txtIDTicket.Text);
+                    atencionc.IDTicket = id;
+                    atencionc.NombreCliente = txtNCliente.Text;
+                    atencionc.ApellidoCliente = txtACliente.Text;
+                    atencionc.Descripcion = txtDescripcion.Text;
+                    atencionc.Estatus = SelecEstatus.Text;
 
-                MessageBox.Show("Se creo el ticket correctamente");
-                GetUserTableA();
+                    servicesA.UpdateUserAtencion(atencionc);
+
+                    // Notificar al usuario que el ticket se modificó correctamente.
+                    MessageBox.Show("¡Se modificó el ticket correctamente!");
+                    txtNCliente.Clear();
+                    txtACliente.Clear();
+                    txtDescripcion.Clear();
+                    SelecEstatus.SelectedIndex = -1;
+                    GetUserTableA();
+                }
             }
 
-            else if (txtIDTicket.Text != "")
-            {
-                int id = int.Parse(txtIDTicket.Text);
-                atencionc.IDTicket = id;
-                atencionc.NombreCliente = txtNCliente.Text;
-                atencionc.ApellidoCliente = txtACliente.Text;
-                atencionc.Descripcion = txtDescripcion.Text;
-                atencionc.Estatus = SelecEstatus.Text;
-                servicesA.UpdateUserAtencion(atencionc);
 
-                MessageBox.Show("¡Se modifico el ticket correctamente!");
-                txtNCliente.Clear();
-                txtACliente.Clear();
-                txtDescripcion.Clear();
-                SelecEstatus.SelectedIndex = -1;
-                GetUserTableA();
-            }
-
-        
-    }
+        }
 
         private void CargarEstatus()
         {
