@@ -13,7 +13,7 @@ namespace Proyecto_AutoRenta.Services
     public class AtencionServices
     {
        
-        public void AddUser(AtenCliente request)
+        public void AddTicket(AtenCliente request)
         {
             try
             {

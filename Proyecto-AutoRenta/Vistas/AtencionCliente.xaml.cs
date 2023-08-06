@@ -56,7 +56,7 @@ namespace Proyecto_AutoRenta.Vistas
                     atencionc.Descripcion = txtDescripcion.Text;
                     atencionc.Estatus = SelecEstatus.Text;
 
-                    servicesA.AddUser(atencionc);
+                    servicesA.AddTicket(atencionc);
 
                     txtNCliente.Clear();
                     txtACliente.Clear();
@@ -114,11 +114,11 @@ namespace Proyecto_AutoRenta.Vistas
 
         private void EditItem(object sender, RoutedEventArgs e)
         {
-            if (txtIDTicket.Visibility == Visibility.Collapsed && ID.Visibility == Visibility.Collapsed)
+            if (txtIDTicket.Visibility == Visibility.Collapsed )
             {
 
                 txtIDTicket.Visibility = Visibility.Visible;
-                ID.Visibility = Visibility.Visible;
+                
 
 
                 atencionc = (sender as FrameworkElement).DataContext as AtenCliente;
@@ -132,7 +132,7 @@ namespace Proyecto_AutoRenta.Vistas
             }
             else
             {
-                ID.Visibility = Visibility.Collapsed;
+                
                 txtIDTicket.Visibility = Visibility.Collapsed;
             }
             
