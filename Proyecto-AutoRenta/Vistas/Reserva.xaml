@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_AutoRenta.Vistas"
         mc:Ignorable="d"
-        Title="Reserva" Height="550" Width="800"
+        Title="Reserva" Height="550" Width="800" Icon="/Images/coche.png"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -29,7 +29,7 @@
                 <GradientStop Color="#1B1448" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
-        <Grid Margin="-2,8,-2,8">
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
@@ -115,7 +115,7 @@
                           IsReadOnly="True" 
                           ColumnWidth="*" 
                           IsSynchronizedWithCurrentItem="True" 
-                                                    Margin="12,225,20,1" Grid.Row="1"  >
+                                                    Margin="10,225,10,1" Grid.Row="1" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding PkReserva}" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
@@ -123,8 +123,10 @@
                     <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
                     <DataGridTextColumn Header="Gestor" Binding="{Binding Usuario.Nombre}"/>
                     <DataGridTextColumn Header="Modelo" Binding="{Binding Vehiculos.Modelo}" />
-                    <DataGridTextColumn Header="Fecha Salida" Binding="{Binding  FechaSalida}" />
-                    <DataGridTextColumn Header="Fecha Entrega" Binding="{Binding FechaRegreso}" />
+                    <DataGridTextColumn Header="Salida" Binding="{Binding  FechaSalida}" />
+                    <DataGridTextColumn Header="Entrega" Binding="{Binding FechaRegreso}" />
+                    <DataGridTextColumn Header="IDPago" Binding="{Binding Pago.PkPago}" />
+                    <DataGridTextColumn Header="Total" Binding="{Binding Pago.Total}" />
 
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>
@@ -192,7 +194,7 @@
             </TextBox>
 
             <Button x:Name="btnReserva" 
-                        Content="Guardar " 
+                        Content="RESERVAR " 
                         HorizontalAlignment="Left" 
                                             Height="45" Margin="635,135,0,0" 
                         Grid.Row="1" VerticalAlignment="Top" 
@@ -222,7 +224,7 @@
                 Cursor="Hand"
                     Margin="12,4,761,476" Grid.Row="1" Click="btngoback_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Images/cerrar-sesion.png"/>
+                    <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>
                 </Button.Background>
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
@@ -245,15 +247,13 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-
             <Button x:Name="btngobackadmin"                          
                 BorderThickness="0"              
                 Foreground="White"
                 FontSize="12"
                 FontFamily="Montserrat"
                 Cursor="Hand"
-                Visibility="Collapsed"
-                Margin="1,4,750,476" Grid.Row="1" Click="btngobackadmin_Click">
+                    Margin="12,4,761,476" Grid.Row="1" Click="btngobackadmin_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/flecha-izquierda.png"/>
                 </Button.Background>
@@ -278,7 +278,6 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            
             <Label Content="Fecha Salida" HorizontalAlignment="Left" Height="32" Margin="257,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="124" FontSize="20" Foreground="#FFFFF9F9"/>
             <Label Content="Fecha Regreso" HorizontalAlignment="Left" Height="38" Margin="455,113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="139" FontSize="20" Foreground="#FFFFF9F9"/>
             <ComboBox x:Name="SelectUser" HorizontalAlignment="Left" Margin="665,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>

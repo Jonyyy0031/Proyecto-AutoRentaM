@@ -86,9 +86,14 @@ namespace Proyecto_AutoRenta.Vistas
                 MessageBox.Show("¡Se modifico el ticket correctamente!");
                 txtNCliente.Clear();
                 txtACliente.Clear();
+                txtIDTicket.Clear();
+
                 txtDescripcion.Clear();
                 SelecEstatus.SelectedIndex = -1;
                 GetUserTableA();
+
+                LTicket.Visibility = Visibility.Collapsed;
+                txtIDTicket.Visibility = Visibility.Collapsed;
             }
 
 
@@ -116,11 +121,11 @@ namespace Proyecto_AutoRenta.Vistas
 
         private void EditItem(object sender, RoutedEventArgs e)
         {
-            if (txtIDTicket.Visibility == Visibility.Collapsed && ID.Visibility == Visibility.Collapsed)
+            if (txtIDTicket.Visibility == Visibility.Collapsed && LTicket.Visibility == Visibility.Collapsed)
             {
-
+                LTicket.Visibility = Visibility.Visible;
                 txtIDTicket.Visibility = Visibility.Visible;
-                ID.Visibility = Visibility.Visible;
+               
 
 
                 atencionc = (sender as FrameworkElement).DataContext as AtenCliente;
@@ -131,10 +136,11 @@ namespace Proyecto_AutoRenta.Vistas
                 txtDescripcion.Text = atencionc.Descripcion.ToString();
                 SelecEstatus.Text = atencionc.Descripcion.ToString();
 
+
             }
             else
             {
-                ID.Visibility = Visibility.Collapsed;
+                LTicket.Visibility = Visibility.Collapsed;
                 txtIDTicket.Visibility = Visibility.Collapsed;
             }
 
@@ -151,8 +157,8 @@ namespace Proyecto_AutoRenta.Vistas
         private void btngoback_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            VistaSuperAdmin StartViewSA = new VistaSuperAdmin();
-            StartViewSA.Show();
+            Login StartLogin = new Login();
+            StartLogin.Show();
         }
 
         private void BtnMinimizar_Click(object sender, RoutedEventArgs e)

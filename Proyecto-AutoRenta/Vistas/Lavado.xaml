@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_AutoRenta.Vistas"
         mc:Ignorable="d"
-        Title="Lavado" Height="450" Width="800">
+        Title="Lavado" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
 
 
     <Border CornerRadius="12">
@@ -191,6 +197,7 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
+                
                 <Button x:Name="btnFlechaIzquierda"                          
                             BorderThickness="0"
                             Foreground="White"
@@ -229,6 +236,47 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+
+                <Button x:Name="btnFlechaIzquierdaadmin"                          
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Visibility="Collapsed"
+                            Click="btnFlechaIzquierdaadmin_Click" Margin="8,5,739,355" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.083"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Image Source="/Images/flecha-izquierda.png"
+                    Stretch="Fill"/>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                
                 <TextBox x:Name="txtEstado" HorizontalAlignment="Left" Height="23" Margin="358,131,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
 
 

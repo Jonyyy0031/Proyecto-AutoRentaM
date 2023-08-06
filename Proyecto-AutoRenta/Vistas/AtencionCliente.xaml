@@ -178,38 +178,6 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                
-                <Label Content="ID"
-                       x:Name="ID"
-                       HorizontalAlignment="Left" 
-                       Margin="375,23,0,0" 
-                       VerticalAlignment="Top" 
-                       Foreground="White" 
-                       FontWeight="Bold" 
-                       FontSize="18" Grid.RowSpan="2"
-                       Visibility="Collapsed"
-                       />
-                <TextBox x:Name="txtPkUser"  
-                         IsEnabled="False" 
-                         Grid.Row="1"
-                          FontSize="13"
-                         FontWeight="Medium"
-                         FontFamily="Montserrat"                            
-                         Foreground="White"
-                         CaretBrush="LightGray"
-                         BorderBrush="DarkGray"
-                         BorderThickness="0,0,0,2"
-                         VerticalContentAlignment="Center"
-                         Margin="321,23,339,465"
-                         Padding="30,0,0,0"
-                         Visibility="Collapsed">
-                    <TextBox.Background>
-                        <ImageBrush ImageSource="/Images/tarjeta-de-identificacion (1).png"
-
-                                        Stretch="Uniform"
-                                        AlignmentX="Left"/>
-                    </TextBox.Background>
-                </TextBox>
 
 
                 <Label Content="Nombre Cliente" 
@@ -267,12 +235,14 @@
                 </TextBox>
 
                 <Label Content="ID Ticket" 
+                       x:Name="LTicket"
                        HorizontalAlignment="Left" 
                        Margin="83,11,0,0" 
                        Grid.Row="1" 
                        VerticalAlignment="Top" 
                        Foreground="White" 
                        FontWeight="Bold" 
+                       Visibility="Collapsed"
                        FontSize="18" Width="122"/>
                 <TextBox x:Name="txtIDTicket" 
                          FontSize="13"
@@ -285,6 +255,7 @@
                          VerticalContentAlignment="Center"
                          Margin="205,14,520,474"
                          Padding="25,0,0,0"
+                         Visibility="Collapsed"
                          Grid.Row="1">
                     <TextBox.Background>
                         <ImageBrush ImageSource="/Images/pase-de-prensa.png"
@@ -377,8 +348,6 @@
                           VerticalAlignment="Top"
                           Width="136" 
                           Grid.Row="1"/>
-                <ComboBoxItem Content="ACTIVO" />
-                <ComboBoxItem Content="CERRADO" />
 
                 <Label Content="Estatus"  
                        HorizontalAlignment="Left" 
