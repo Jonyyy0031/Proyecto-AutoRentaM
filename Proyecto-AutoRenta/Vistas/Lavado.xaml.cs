@@ -42,6 +42,7 @@ namespace Proyecto_AutoRenta.Vistas
             if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
             {
                 btnFlechaIzquierdaadmin.Visibility = Visibility.Visible;
+                btnFlechaIzquierda.Visibility = Visibility.Collapsed;
             }
             else
             {

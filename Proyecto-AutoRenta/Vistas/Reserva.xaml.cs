@@ -44,6 +44,7 @@ namespace Proyecto_AutoRenta.Vistas
             if (usuario.Roles != null && usuario.Roles.Nombre == "SuperAdmin")
             {
                 btngobackadmin.Visibility = Visibility.Visible;
+                btngoback.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -172,10 +173,6 @@ namespace Proyecto_AutoRenta.Vistas
             SelectUser.SelectedValuePath = "PkUsuario";
         }
 
-
-
-
-        //---------------------------------------------------------------------//
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
